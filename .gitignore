@@ -1,0 +1,75 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+env/
+.venv/
+venv/
+ENV/
+build/
+dist/
+.eggs/
+*.egg-info/
+
+# Flask
+instance/
+.webassets-cache
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+/target/
+/.idea/
+/.classpath
+/.project
+/.settings/
+
+# Node/React
+node_modules/
+build/
+dist/
+.env
+.env.*
+
+# VSCode
+.vscode/
+
+# Mac/Linux/Windows
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Images générées
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+
+# Autres fichiers temporaires
+*.swp
+*.swo
+
+# JetBrains
+.idea/
+
+# Coverage
+htmlcov/
+.coverage
+coverage.xml
+
+# Test
+*.test.js.snap
+
+# Misc
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore local config
+config/local.py
