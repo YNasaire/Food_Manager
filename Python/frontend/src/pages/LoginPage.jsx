@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
+import { login } from '../api';
 
 const LoginPage = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Remplacer par un appel API réel
-    if (email === 'test@test.com' && password === 'test') {
-      onLogin({ nom: 'Test', prenom: 'User', email });
-    } else {
-      setError('Identifiants invalides');
+    setError("");
+    try {
+      const res = await login(email, password);
+      if (res.user_id) {
+        onLogin(res);
+      } else {
+        setError(res.error || 'Identifiants invalides');
+      }
+    } catch (err) {
+      setError('Erreur serveur');
     }
   };
 

@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: fooddb
+      POSTGRES_USER: fooduser
+      POSTGRES_PASSWORD: foodpass
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata_java:/var/lib/postgresql/data
+
+  backend-java:
+    build: ./backend
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/fooddb
+      SPRING_DATASOURCE_USERNAME: fooduser
+      SPRING_DATASOURCE_PASSWORD: foodpass
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend-java
+
+volumes:
+  pgdata_java:

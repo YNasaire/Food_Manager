@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
+import logo from '../images/logo.png'; // Assurez-vous que le chemin est correct
 
 const Navbar = ({ isConnected, onLogout, user }) => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const Navbar = ({ isConnected, onLogout, user }) => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <img src="/logo.png" alt="" height={40} />
+        <img src={logo} alt="" style={{height:60,width:90, marginRight:15}} />
         <span>Food Manager</span>
       </div>
       <div className="navbar-links">

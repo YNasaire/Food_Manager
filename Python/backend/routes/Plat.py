@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
-from backend.modeles.Plat import Plat
-from backend.database import db
+from modeles.Plat import Plat
+from database import db
 
 plat_bp = Blueprint('plat', __name__)
 

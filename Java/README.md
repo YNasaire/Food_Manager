@@ -21,7 +21,10 @@ Food Manager est une application web permettant de gérer vos stocks alimentaire
 Java/
 ├── backend/
 │   ├── pom.xml
-│   └── src/
+│   |── frontend/
+|   |== Dockerfile     
+|   |== Target/     
+|   |===src/
 │       ├── main/
 │       │   ├── java/
 │       │   │   └── com/
@@ -46,22 +49,6 @@ Java/
 │       |
 |       └── ...
 |  
-|
-|     
-├── frontend/
-│   ├── src/
-│   │   └── main/
-│   │       └── java/
-│   │           └── com/foodmanager/views/
-│   │               ├── LoginView.java
-│   │               ├── RegisterView.java
-│   │               ├── BuffetView.java
-│   │               ├── PlatsView.java
-│   │               └── ...
-│   └── ...
-└── ...
-```
-
 ## Outils de Backend
 
 - **Spring Boot** pour l’API REST et la logique métier

@@ -20,7 +20,13 @@ function App() {
 
   const handleLogin = (userData) => {
     setIsConnected(true);
-    setUser(userData);
+    // Correction : l'API renvoie user_id, pas id
+    setUser({
+      id: userData.user_id,
+      nom: userData.nom,
+      prenom: userData.prenom,
+      email: userData.email
+    });
   };
   const handleLogout = () => {
     setIsConnected(false);
@@ -39,7 +45,7 @@ function App() {
           <Route path="/" element={<AccueilPage />} />
           <Route path="/nourritures" element={<NourriturePage isConnected={isConnected} user={user} />} />
           <Route path="/buffet" element={isConnected ? <BuffetPage isConnected={isConnected} user={user} /> : <Navigate to="/login" />} />
-          <Route path="/favoris" element={isConnected ? <FavoriePage isConnected={isConnected} user={user} /> : <Navigate to="/login" />} />
+          <Route path="/favorie" element={isConnected ? <FavoriePage isConnected={isConnected} user={user} /> : <Navigate to="/login" />} />
           <Route path="/allergies" element={isConnected ? <AllergiePage isConnected={isConnected} user={user} /> : <Navigate to="/login" />} />
           <Route path="/plat-jour" element={isConnected ? <PlatJourPage isConnected={isConnected} user={user} /> : <Navigate to="/login" />} />
           <Route path="/plat-mois" element={isConnected ? <PlatMoisPage isConnected={isConnected} user={user} /> : <Navigate to="/login" />} />

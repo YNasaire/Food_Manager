@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { register } from '../api';
 
 const RegisterPage = ({ onRegister }) => {
   const [nom, setNom] = useState('');
@@ -7,11 +8,15 @@ const RegisterPage = ({ onRegister }) => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Remplacer par un appel API réel
     if (email && password && nom && prenom) {
-      onRegister({ nom, prenom, email });
+      const res = await register(nom, prenom, email, password);
+      if (res.user_id) {
+        onRegister({ id: res.user_id, nom, prenom, email });
+      } else {
+        setError(res.error || 'Erreur lors de l\'inscription');
+      }
     } else {
       setError('Tous les champs sont obligatoires');
     }

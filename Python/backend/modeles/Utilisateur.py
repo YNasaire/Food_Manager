@@ -1,4 +1,4 @@
-from backend.database import db
+from database import db
 
 class Utilisateur(db.Model):
     id = db.Column(db.Integer, primary_key=True)

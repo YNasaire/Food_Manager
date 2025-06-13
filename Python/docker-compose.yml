@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: python_food_manager_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: NNMINDE12;
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata_python:/var/lib/postgresql/data
+
+  backend-python:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      FLASK_ENV: production
+      DATABASE_URL: postgresql://postgres:NNMINDE12%3B@postgres:5432/python_food_manager_db
+    depends_on:
+      - postgres
+    ports:
+      - "5000:5000"
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend-python
+
+volumes:
+  pgdata_python:

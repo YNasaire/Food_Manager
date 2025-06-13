@@ -5,6 +5,10 @@
   background: #2d3e50;
   color: #fff;
   padding: 0.5rem 2rem;
+  top: 0px;
+  position: fixed;
+  width: 95%;
+  
 }
 .navbar-logo {
   display: flex;
