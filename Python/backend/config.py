@@ -1,4 +1,9 @@
-# filepath: /home/nassaramadji/Bureau/Food_Manager/Python/backend/config.py
+import os
+
+
 class Config:
-    SQLALCHEMY_DATABASE_URI = 'postgresql://postgres:NNMINDE12%3B@postgres:5432/python_food_manager_db'
+    SQLALCHEMY_DATABASE_URI = os.getenv(
+        "DATABASE_URL",
+        "postgresql://postgres:NNMINDE12;@localhost:5432/python_food_manager_db",
+    )
     SQLALCHEMY_TRACK_MODIFICATIONS = False
