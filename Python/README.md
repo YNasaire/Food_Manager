@@ -49,7 +49,7 @@ docker compose down
 
 ### Redémarrer tous les services
 ```bash
-docker compose restart
+docker compose up -d
 ```
 
 ### Lancer seulement le backend

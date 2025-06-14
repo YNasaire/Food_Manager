@@ -6,7 +6,17 @@ nourriture_bp = Blueprint('nourriture', __name__)
 
 @nourriture_bp.route('/nourritures', methods=['GET'])
 def get_nourritures():
-    return "Liste des nourritures (exemple)"
+    nourritures = Nourriture.query.all()
+    result = []
+    for n in nourritures:
+        result.append({
+            "id": n.id,
+            "nom": n.nom,
+            "description": getattr(n, "description", ""),
+            "ingredients": getattr(n, "ingredients", ""),
+            "image_url": getattr(n, "image_url", "")
+        })
+    return jsonify(result), 200
 
 @nourriture_bp.route('/nourriture', methods=['POST'])
 def ajouter_nourriture():

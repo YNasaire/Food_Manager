@@ -30,6 +30,8 @@ services:
       - "3000:80"
     depends_on:
       - backend-python
+    environment:
+      - REACT_APP_API_URL=http://backend-python:5000
 
 volumes:
   pgdata_python:
