@@ -4,9 +4,9 @@ services:
   postgres:
     image: postgres:15
     environment:
-      POSTGRES_DB: fooddb
-      POSTGRES_USER: fooduser
-      POSTGRES_PASSWORD: foodpass
+      POSTGRES_DB: java_food_manager_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: NNMINDE12;
     ports:
       - "5432:5432"
     volumes:
@@ -15,9 +15,9 @@ services:
   backend-java:
     build: ./backend
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/fooddb
-      SPRING_DATASOURCE_USERNAME: fooduser
-      SPRING_DATASOURCE_PASSWORD: foodpass
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/java_food_manager_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: NNMINDE12;
     depends_on:
       - postgres
     ports:

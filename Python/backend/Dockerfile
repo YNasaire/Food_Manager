@@ -8,6 +8,9 @@ WORKDIR /app
 # Copier tout le dossier Python (incluant main.py) dans /app
 COPY . .
 
+# Copier le fichier Nourriture.json dans le container
+COPY Nourriture.json ./Nourriture.json
+
 # Installer les dépendances
 RUN pip install --no-cache-dir -r requirements.txt
 
