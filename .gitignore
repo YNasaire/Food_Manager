@@ -26,6 +26,7 @@ instance/
 /.classpath
 /.project
 /.settings/
+target/
 
 # Node/React
 node_modules/
